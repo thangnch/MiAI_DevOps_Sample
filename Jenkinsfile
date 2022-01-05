@@ -27,7 +27,7 @@ pipeline{
 
         stage ('Send to Nexus'){
             steps {
-                nexusArtifactUploader artifacts: [[artifactId: 'FlaskApp', classifier: '', file: 'main.py', type: 'py']], credentialsId: 'f42494d3-c5c8-4e49-a4d9-078f728e4155', groupId: 'PythonFlask', nexusUrl: 'http://192.168.1.144:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'PythonDeploy', version: '1'
+                nexusArtifactUploader artifacts: [[artifactId: 'FlaskApp', classifier: '', file: 'main.py', type: 'py']], credentialsId: 'f42494d3-c5c8-4e49-a4d9-078f728e4155', groupId: 'PythonFlask', nexusUrl: '192.168.1.144:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'PythonDeploy', version: '1'
 
             }
         }
