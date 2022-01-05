@@ -3,7 +3,7 @@ pipeline{
     agent any
     environment{
        ArtifactId = "FlaskApp"
-       Version = "1"
+       Version = "2"
        Name = "FlaskApp"
        GroupId = "PythonFlask"
     }
@@ -27,7 +27,8 @@ pipeline{
 
         stage ('Send to Nexus'){
             steps {
-                nexusArtifactUploader artifacts: [[artifactId: 'FlaskApp', classifier: '', file: 'main.py', type: 'py']], credentialsId: '948b1271-9a5c-4e21-bc0d-c8b27335d244', groupId: 'PythonFlask', nexusUrl: '192.168.1.144:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'PythonDeploy', version: '1'
+                nexusArtifactUploader artifacts: [[artifactId: 'FlaskApp', classifier: '', file: 'main.py', type: 'py']], credentialsId: '948b1271-9a5c-4e21-bc0d-c8b27335d244', groupId: 'PythonFlask', nexusUrl: '192.168.1.144:8081',
+                 nexusVersion: 'nexus3', protocol: 'http', repository: 'PythonDeploy', version: '${Version}'
 
             }
         }
