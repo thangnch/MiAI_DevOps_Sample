@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'Welcome to 1st version of main.py'
+    return 'Welcome to DevOps of Mi AI'
 
     
 if __name__ == '__main__':
