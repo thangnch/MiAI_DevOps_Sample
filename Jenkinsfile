@@ -25,18 +25,14 @@ pipeline{
             }
         }
 
-        // Stage3 : Publish the artifacts to Nexus
         stage ('Deploy'){
             steps {
-                echo 'Deploy....'
-             }
+                echo ' Dep[loy]......'
+
             }
         }
 
-    
-        
-
-   
+       
 
 
 
