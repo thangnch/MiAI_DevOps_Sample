@@ -13,7 +13,8 @@ pipeline{
         // stage 1. Build
         stage ('Build'){
             steps {
-                echo 'Build not need'
+                echo 'Build not need.Zip'
+                sh 'zip -r main.zip main.py'
             }
         }
 
@@ -27,7 +28,7 @@ pipeline{
 
         stage ('Send to Nexus'){
             steps {
-                nexusArtifactUploader artifacts: [[artifactId: 'main', classifier: '', file: 'main.py', type: 'py']], credentialsId: '948b1271-9a5c-4e21-bc0d-c8b27335d244', groupId: 'FlaskApp', nexusUrl: '192.168.1.144:8081',
+                nexusArtifactUploader artifacts: [[artifactId: 'main', classifier: '', file: 'main.zip', type: 'zip']], credentialsId: '948b1271-9a5c-4e21-bc0d-c8b27335d244', groupId: 'FlaskApp', nexusUrl: '192.168.1.144:8081',
                  nexusVersion: 'nexus3', protocol: 'http', repository: 'PythonDeploy', version: "${Version}"
 
             }
